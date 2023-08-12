@@ -1,7 +1,12 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "eslint-comments"],
+  "extends": ["plugin:eslint-comments/recommended"],
+  "rules": {
+    // Disallow Eslint comments that don't include a description
+    "eslint-comments/require-description": "error"
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -24,7 +29,17 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        // Disallow unused variables
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            // Allow unused function arguments that start with an underscore
+            "argsIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+          }
+        ]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

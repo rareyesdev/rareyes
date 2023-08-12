@@ -1,4 +1,4 @@
-/* eslint-disable */
+// eslint-disable-next-line import/no-anonymous-default-export -- Scaffolded by Nx
 export default {
   displayName: 'portfolio',
   preset: '../../jest.preset.js',
