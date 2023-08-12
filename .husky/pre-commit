@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# --> "--concurrent false" to make sure attempts to write fixes with formatting and linting don't conflict with
+# simultaneous attempts at type checking.
+# --> "--relative" because our Nx commands for formatting and linting expect a list of file paths relative to the repo
+# root, but lint-staged would otherwise pass the full path by default.
+npx lint-staged --concurrent false --relative
