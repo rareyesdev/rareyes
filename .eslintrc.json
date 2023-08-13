@@ -20,6 +20,7 @@
   },
   "overrides": [
     {
+      // JavaScript or TypeScript files
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
         "@nx/enforce-module-boundaries": [
@@ -38,6 +39,7 @@
       }
     },
     {
+      // TypeScript files
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
       "rules": {
@@ -55,9 +57,25 @@
       }
     },
     {
+      // JavaScript files
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
       "rules": {}
+    },
+    {
+      // React JSX files
+      "files": ["*.jsx", "*.tsx"],
+      "rules": {
+        "react/jsx-sort-props": [
+          "error",
+          {
+            "ignoreCase": true,
+            "reservedFirst": true,
+            "shorthandFirst": true,
+            "callbacksLast": true
+          }
+        ]
+      }
     }
   ]
 }

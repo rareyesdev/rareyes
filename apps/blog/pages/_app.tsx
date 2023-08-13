@@ -15,10 +15,10 @@ export default function Nextra({ Component, pageProps }: NextraProps) {
     <>
       <Head>
         <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="RSS"
           href="/feed.xml"
+          rel="alternate"
+          title="RSS"
+          type="application/rss+xml"
         />
       </Head>
       <Component {...pageProps} />

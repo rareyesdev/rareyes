@@ -25,10 +25,10 @@ export default {
   head: ({ title, meta }) => (
     <>
       {meta.description && (
-        <meta name="description" content={meta.description} />
+        <meta content={meta.description} name="description" />
       )}
-      {meta.tag && <meta name="keywords" content={meta.tag} />}
-      {meta.author && <meta name="author" content={meta.author} />}
+      {meta.tag && <meta content={meta.tag} name="keywords" />}
+      {meta.author && <meta content={meta.author} name="author" />}
     </>
   ),
   readMore: 'Read More →',
