@@ -39,7 +39,10 @@ async function generate() {
     feed.item(post);
   });
 
-  await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }));
+  await fs.writeFile(
+    path.join(__dirname, '..', 'public', 'feed.xml'),
+    feed.xml({ indent: true })
+  );
 }
 
 generate();

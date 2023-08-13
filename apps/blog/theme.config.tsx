@@ -7,7 +7,7 @@ export default {
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
       <time>{yearLabel}</time> © Alejandro Reyes.
-      <a href="/feed.xml">RSS</a>
+      {/* <a href="/feed.xml">RSS</a>
       <style jsx>{`
         a {
           float: right;
@@ -18,7 +18,7 @@ export default {
             padding-bottom: 4rem;
           }
         }
-      `}</style>
+      `}</style> */}
     </small>
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- TODO: Check if the title should be added to the head
