@@ -1,3 +1,4 @@
+import { getString } from '@rareyes/toolbox';
 import styles from './page.module.css';
 
 export default async function Index() {
@@ -12,7 +13,7 @@ export default async function Index() {
         <div className="container">
           <div id="welcome">
             <h1>
-              <span> Hello there, </span>
+              <span> {getString()}, </span>
               Welcome portfolio 👋
             </h1>
           </div>
