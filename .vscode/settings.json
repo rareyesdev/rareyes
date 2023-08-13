@@ -10,5 +10,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "conventionalCommits.scopes": ["blog", "portfolio", "toolbox"]
+  "conventionalCommits.scopes": ["blog", "portfolio", "toolbox"],
+  "cSpell.words": ["Nextra"]
 }
