@@ -28,6 +28,7 @@
       "configurations": {
         "development": {
           "buildTarget": "blog:build:development",
+          "port": 4300,
           "dev": true
         },
         "production": {
