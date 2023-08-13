@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { getString } from '@rareyes/toolbox';
 
+/** Experimental component to test tree-shaking of barrel (index) files */
 export function Component1() {
   console.log('component1');
   const [count, setCount] = useState(0);

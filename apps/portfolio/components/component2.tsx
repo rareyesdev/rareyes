@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
+/** Experimental component to test tree-shaking of barrel (index) files */
 export function Component2() {
   const [count, setCount] = useState(0);
 
