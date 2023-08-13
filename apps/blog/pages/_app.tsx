@@ -1,9 +1,9 @@
-import 'nextra-theme-blog/style.css';
 import Head from 'next/head';
 
+import 'nextra-theme-blog/style.css';
 import '../styles/main.css';
 
-import { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 interface NextraProps {
   Component: ComponentType;

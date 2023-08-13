@@ -1,11 +1,22 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "eslint-comments"],
+  "plugins": ["@nx", "eslint-comments", "simple-import-sort"],
   "extends": ["plugin:eslint-comments/recommended"],
   "rules": {
     // Disallow Eslint comments that don't include a description
-    "eslint-comments/require-description": "error"
+    "eslint-comments/require-description": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^\\w", "^@\\w", "^", "^\\."],
+          // Side effect imports.
+          ["^\\u0000"],
+          ["^@?\\w.*\\u0000$", "^[^.].*\\u0000$", "^\\..*\\u0000$"]
+        ]
+      }
+    ]
   },
   "overrides": [
     {
@@ -30,6 +41,8 @@
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
       "rules": {
+        // Make sure that type imports are separated from the rest.
+        "@typescript-eslint/consistent-type-imports": "error",
         // Disallow unused variables
         "@typescript-eslint/no-unused-vars": [
           "error",

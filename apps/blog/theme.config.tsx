@@ -1,4 +1,4 @@
-import { NextraBlogTheme } from 'nextra-theme-blog';
+import type { NextraBlogTheme } from 'nextra-theme-blog';
 
 const yearLabel = new Date().getFullYear();
 
