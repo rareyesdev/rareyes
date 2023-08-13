@@ -1,28 +1,14 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "eslint-comments", "simple-import-sort"],
+  "plugins": ["@nx", "eslint-comments", "simple-import-sort", "import"],
   "extends": ["plugin:eslint-comments/recommended"],
-  "rules": {
-    // Disallow Eslint comments that don't include a description
-    "eslint-comments/require-description": "error",
-    "simple-import-sort/imports": [
-      "error",
-      {
-        "groups": [
-          ["^react", "^\\w", "^@\\w", "^", "^\\."],
-          // Side effect imports.
-          ["^\\u0000"],
-          ["^@?\\w.*\\u0000$", "^[^.].*\\u0000$", "^\\..*\\u0000$"]
-        ]
-      }
-    ]
-  },
   "overrides": [
     {
-      // JavaScript or TypeScript files
+      // --- JavaScript or TypeScript files ---
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
+        // Disallow deep imports from other packages
         "@nx/enforce-module-boundaries": [
           "error",
           {
@@ -35,16 +21,41 @@
               }
             ]
           }
+        ],
+        // Disallow Eslint comments that don't include a description
+        "eslint-comments/require-description": "error",
+
+        // Sort imports
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^react", "^\\w", "^@\\w", "^", "^\\."],
+              // Side effect imports
+              ["^\\u0000"],
+              ["^@?\\w.*\\u0000$", "^[^.].*\\u0000$", "^\\..*\\u0000$"]
+            ]
+          }
+        ],
+
+        // Disallow useless path segments (.js, .ts extensions).
+        "import/no-useless-path-segments": [
+          "error",
+          {
+            // Detect unnecessary /index or /index.js
+            "noUselessIndex": true
+          }
         ]
       }
     },
     {
-      // TypeScript files
+      // --- TypeScript files ---
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
       "rules": {
-        // Make sure that type imports are separated from the rest.
+        // Make sure that type imports are separated from the rest
         "@typescript-eslint/consistent-type-imports": "error",
+
         // Disallow unused variables
         "@typescript-eslint/no-unused-vars": [
           "error",
@@ -57,7 +68,7 @@
       }
     },
     {
-      // JavaScript files
+      // --- JavaScript files ---
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
       "rules": {}
@@ -66,6 +77,7 @@
       // React JSX files
       "files": ["*.jsx", "*.tsx"],
       "rules": {
+        // Sort props in JSX
         "react/jsx-sort-props": [
           "error",
           {

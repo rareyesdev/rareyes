@@ -10,7 +10,8 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "apps/portfolio/pages"]
+        // TODO: Is this rule needed when using the new app router?
+        "@next/next/no-html-link-for-pages": ["error", "apps/portfolio/app"]
       }
     },
     {
