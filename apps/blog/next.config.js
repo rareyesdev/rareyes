@@ -3,9 +3,9 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires -- Scaffolded by Nx
 const { composePlugins, withNx } = require('@nx/next');
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: process.env.ANALYZE === 'true',
+// });
 
 // @ts-expect-error - Seems Nextra has some issues with the exported types.
 const withNextra = require('nextra')({
@@ -39,7 +39,7 @@ const nextConfig = {
 
 const plugins = [
   // Add more Next.js plugins to this list if needed.
-  withBundleAnalyzer,
+  // withBundleAnalyzer,
   withNextra,
   withNx,
 ];
